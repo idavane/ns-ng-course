@@ -1,18 +1,45 @@
 <ScrollView>
-    <StackLayout>
-        <Button ios:text="Apple Health Data available?" android:text="Google Fit Data available?" (tap)="isAvailable()"></Button>
+ 
+        <GridLayout columns = "*,*" rows ="auto, auto, auto, auto" horizontalAlignment ="stretch">
+            <Label row ="0" col ="0" colSpan="2" text= "Check Fitness Data"> </Label>
+            <GridLayout row ="1" col="0" colSpan="2" columns = "*, *, *" rows ="auto, auto" horizontalAlignment ="stretch">
+                    <Button row ="0" col ="0" ios:text="Apple Health Data available?" android:text="Google Fit Data available?" (tap)="isAvailable()" textWrap="true"></Button>
+                    <Button row="0" col="1" text="Steps" (tap)="getData('steps', 'count', 'sourceAndDay')" textWrap="true"></Button>
+                    <Button  row="0" col="2"  text="Distance" (tap)="getData('distance', 'km', 'hour')" textWrap="true"></Button>
+
+                    <Button row="1" col="0" text="Height (m)" (tap)="getData('height', 'm')" textWrap="true"></Button>
+                    <Button row="1" col="1" text="Weight (kg)" (tap)="getData('weight', 'kg')" textWrap="true"></Button>
+                    <Button row="1" col="2" text="Calories (Cal)" (tap)="getData('calories', 'kcal')" textWrap="true"></Button>
+
+            </GridLayout>    
+            <Label row ="2" colSpan= "2" horizontalAlignment="center" [text]="resultToShow" textWrap="true"></Label>
+           <!-- <label row="3" col="0" text="Steps:" class="key" textWrap="true"></label>
+            <Label row="3" col="1" text="{{ step_steps }}" class="value" textWrap="true"></Label>
+            <Label row="4" col="0" text="Start" class="value" textWrap="true"></Label>
+            <Label row="4" col="1" class="value" textWrap="true"></Label>
+            <Label row="5" col="0" text="End" class="value" textWrap="true"></Label>
+            <Label row="5" col="1" class="value" textWrap="true"></Label>-->
+        </GridLayout>    
+ 
+    </ScrollView>
+        <!-- <Button ios:text="Apple Health Data available?" android:text="Google Fit Data available?" (tap)="isAvailable()"></Button>
         <Button text="Is Authorized?" (tap)="isAuthorized()"></Button>
         <Button text="Request Authorization" (tap)="requestAuthForVariousTypes()"></Button>    
         <Button text="Get Daily Steps per source (count)" (tap)="getData('steps', 'count', 'sourceAndDay')"></Button>
         <Button text="Get Hourly Distance data (km)" (tap)="getData('distance', 'km', 'hour')"></Button>
-        <!--<Button text="Get Hourly Distance data (mi)" (tap)="getData('distance', 'mi', 'hour')"></Button>-->
-        <Button text="Get Height (m)" (tap)="getData('height', 'm')"></Button>
-        <Button text="Get Weight (kg)" (tap)="getData('weight', 'kg')"></Button>
-        <Button text="Get Calories (Cal)" (tap)="getData('calories', 'kcal')"></Button>
-        <Button text="Start background Hearth Rate monitoring" (tap)="startMonitoringData('heartRate', 'count/min')"></Button>
+        <Button text="Get Hourly Distance data (mi)" (tap)="getData('distance', 'mi', 'hour')"></Button>
+            <Button text="Get Height (m)" (tap)="getData('height', 'm')"></Button> 
+            <Button text="Get Weight (kg)" (tap)="getData('weight', 'kg')"></Button>
+            <Button text="Get Calories (Cal)" (tap)="getData('calories', 'kcal')"></Button>-->
+       
+       <!-- <iOS>
+         <Button text="Start background Hearth Rate monitoring" (tap)="startMonitoringData('heartRate', 'count/min')"></Button>
         <Button text="Stop background Hearth Rate monitoring" (tap)="stopMonitoringData('heartRate')"></Button>
         <Button text="Get Heart Rate (count/min)" (tap)="getData('heartRate', 'count/min')"></Button>
         <Button text="Get Fat percentage (%)" (tap)="getData('fatPercentage', '%')"></Button>
-        <Label horizontalAlignment="center" [text]="resultToShow" textWrap="true"></Label>
-    </StackLayout>
-</ScrollView>
+        </iOS>
+        <Label horizontalAlignment="center" [text]="resultToShow" textWrap="true"></Label>-->
+  
+
+
+
