@@ -2,7 +2,7 @@ import { Component, NgZone } from "@angular/core";
 import { alert } from "tns-core-modules/ui/dialogs";
 import { AggregateBy, HealthData, HealthDataType } from "nativescript-health-data";
 
-import { getLocaleDateFormat } from "@angular/common";
+
 
 @Component({
     selector: 'ns-schrittzaehler',
@@ -29,13 +29,7 @@ export class SchrittzaehlerComponent {
         this.healthData = new HealthData();
       }
 
-      /*private round(value: number, decimals: number) {
-        var strnumber = `${value}e${decimals}`;
-        var numround = Math.round(Number(strnumber));
-        var strfinal = `${numround}e-${decimals}`;
-        return Number(strfinal);
-      }*/
-
+      
       private formatDate(value: Date) {
         return value.toLocaleDateString("en-us") + " " + value.toLocaleTimeString("en-us");
       }
@@ -64,12 +58,7 @@ export class SchrittzaehlerComponent {
             .catch(error => console.log("Request auth error: ", error));
       }
     
-     /* getAllData():void {
-        Object.keys(this.healthData).forEach(function(key) {
-                  
-          console.log('Key : ' + key + ', Value : ' + this.healthData[key])
-        })
-      }*/
+     
       getData(dataType: string, unit: string, aggregateBy?: AggregateBy): Promise<void> {
         
         return this.healthData.query(
@@ -93,14 +82,6 @@ export class SchrittzaehlerComponent {
             .catch(error => this.resultToShow = error);
       }
 
-     /* private updateStepsUI(result) {
-        console.log("schrittzaehler update: " + JSON.stringify(result));
-    
-        this.set("step_startDate", this.formatDate(result.startDate));
-        this.set("step_endDate", this.formatDate(result.endDate));
-        this.set("step_steps", result.steps);
-        this.set("step_distance", this.round(result.distance, 3) + " meter");
-      }*/
     
       startMonitoringData(dataType: string, unit: string): void {
         this.healthData.startMonitoring(
