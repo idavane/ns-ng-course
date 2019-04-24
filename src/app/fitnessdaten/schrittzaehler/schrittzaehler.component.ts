@@ -47,6 +47,7 @@ export class SchrittzaehlerComponent {
               okButtonText: "Ok!"
             }), 300));
       }
+
     
       requestAuthForVariousTypes(): void {
         this.healthData.requestAuthorization(SchrittzaehlerComponent.TYPES)
