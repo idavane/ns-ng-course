@@ -1,6 +1,6 @@
 {
     "nativescript": {
-        "id": "org.nativescript.nsngcourse",
+        "id": "org.gms.healthtopas",
         "tns-android": {
             "version": "5.2.0"
         },
